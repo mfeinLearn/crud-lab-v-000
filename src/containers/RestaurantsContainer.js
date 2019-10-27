@@ -23,4 +23,4 @@ const mapDispatchToProps = dispatch => ({
   addRestaurant: name => dispatch({ type: "ADD_RESTAURANT", text: name })
 })
 
-export default connect(null, mapDispatchToProps)(RestaurantsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
