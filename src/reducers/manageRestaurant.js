@@ -16,7 +16,14 @@ export default function manageRestaurants(state = {
       return { ...state, restaurants: [...state.restaurants, restaurant] }
     case 'DELETE_RESTAURANT':
       return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
-
+    // case "UPDATE_RESTAURANT":
+      // if(restaurant.id  === action.id){
+      //
+      //   return {restaurants: state.restaurants }
+      // }
+      //   return {restaurants: state.restaurants.map(restaurant => restaurant.id !== action.id) }
+      // alert("inside of UPDATE_RESTAURANT");
+      // return state;
     case "ADD_REVIEW":
     console.log("inside add review:", action.review)
       const review = {
@@ -27,7 +34,14 @@ export default function manageRestaurants(state = {
       return {...state, reviews: [...state.reviews, review]};
     case "DELETE_REVIEW":
       return {reviews: state.reviews.filter(review => review.id !== action.id) }
-
+    // case "UPDATE_REVIEW":
+      // if(review.id  === action.id){
+      //
+      //   return {reviews: state.reviews }
+      // }
+      // return {reviews: state.reviews.map(review => review.id !== action.id) }
+      // alert("inside of UPDATE_REVIEW");
+      // return state;
     default:
       return state;
   }

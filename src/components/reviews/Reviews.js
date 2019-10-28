@@ -8,7 +8,7 @@ class Reviews extends Component {
     let reviewList;
     if (this.props.reviews ){
       reviews = this.props.reviews.filter(review => review.restaurantId === this.props.restaurantId);
-      reviewList = reviews.map(review => <Review review={review} key={review.id} delete={this.props.delete} />);
+      reviewList = reviews.map(review => <Review review={review} key={review.id} update={this.props.update} delete={this.props.delete} />);
     }
     // let reviewList = reviews.map(review => <Review review={review} key={review.id} />);
 

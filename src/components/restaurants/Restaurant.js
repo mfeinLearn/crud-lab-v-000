@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
+import RestaurantInput from './RestaurantInput'
 
 class Restaurant extends Component {
+  state = {
+    updateHasBeenPressed: false
+  }
+
+  handleOnClick(event) {
+    event.preventDefault()
+    this.setState({
+      updateHasBeenPressed: true
+    });
+  }
+
+  // updateRender = () => {
+  //   if (this.state.updateHasBeenPressed === true){
+  //     return (
+  //       <RestaurantInput />
+  //     );
+  //   }
+  // }
+
+  renderCorrectOutput = () => {
+    return this.state.updateHasBeenPressed === true ? <RestaurantInput /> : this.props.restaurant.text;
+  }
+
 
 
   render() {
@@ -10,8 +34,9 @@ class Restaurant extends Component {
     return (
       <div>
         <li>
-          {restaurant.text}
+          {this.renderCorrectOutput()}
           <button  onClick={() => this.props.delete(this.props.restaurant.id)}> X </button>
+          <button  onClick={(event) => this.handleOnClick(event)}> Update </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>

@@ -18,7 +18,8 @@ class RestaurantInput extends Component {
       text: ''
     });
   }
-
+this.props.updateResterant
+- > 
 
   render() {
     return (

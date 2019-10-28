@@ -10,7 +10,7 @@ class Restaurants extends Component {
   render() {
     let restaurants;
     if (this.props.restaurants ){
-      restaurants = this.props.restaurants.map(restaurant => <Restaurant restaurant={restaurant} key={restaurant.id}  delete={this.props.delete}/>);
+      restaurants = this.props.restaurants.map(restaurant => <Restaurant restaurant={restaurant} key={restaurant.id}  update={this.props.update}  delete={this.props.delete}/>);
     }
 
     return(
