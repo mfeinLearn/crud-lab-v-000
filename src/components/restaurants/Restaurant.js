@@ -23,7 +23,7 @@ class Restaurant extends Component {
   // }
 
   renderCorrectOutput = () => {
-    return this.state.updateHasBeenPressed === true ? <RestaurantInput /> : this.props.restaurant.text;
+    return this.state.updateHasBeenPressed === true ? <RestaurantInput updateRestaurant={this.state.updateHasBeenPressed}  /> : this.props.restaurant.text;
   }
 
 
