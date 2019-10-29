@@ -21,9 +21,9 @@ class Restaurant extends Component {
   //     );
   //   }
   // }
-
   renderCorrectOutput = () => {
-    return this.state.updateHasBeenPressed === true ? <RestaurantInput updateRestaurant={this.state.updateHasBeenPressed}  /> : this.props.restaurant.text;
+    // console.log("im here",this.props.restaurant.text)
+    return this.state.updateHasBeenPressed === true ? <RestaurantInput key={Math.random()} updateRestaurant={this.state.updateHasBeenPressed}  /> : this.props.restaurant.text;
   }
 
 
@@ -36,7 +36,7 @@ class Restaurant extends Component {
         <li>
           {this.renderCorrectOutput()}
           <button  onClick={() => this.props.delete(this.props.restaurant.id)}> X </button>
-          <button  onClick={(event) => this.handleOnClick(event)}> Update </button>
+          <button  onClick={() => this.props.update(this.props.restaurant.id, this.props.restaurant.name)}> Update </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>

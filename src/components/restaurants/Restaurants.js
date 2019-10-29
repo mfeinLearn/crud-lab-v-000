@@ -9,7 +9,8 @@ class Restaurants extends Component {
 
   render() {
     let restaurants;
-    if (this.props.restaurants ){
+    if (this.props.restaurants && this.props.restaurants.length > 0 ){
+    console.log(this.props.restaurants)
       restaurants = this.props.restaurants.map(restaurant => <Restaurant restaurant={restaurant} key={restaurant.id}  update={this.props.update}  delete={this.props.delete}/>);
     }
 

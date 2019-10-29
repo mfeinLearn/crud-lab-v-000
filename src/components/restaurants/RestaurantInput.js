@@ -11,22 +11,31 @@ class RestaurantInput extends Component {
     });
   }
 
-  checkIfRestaurantAddOrUpdate = () => {
-    if (this.props.updateRestaurant === true ) {
-      this.setState({
-        text: this.state.text,
-      });
-    }
-    this.props.addRestaurant(this.state.text);
-  }
+  // checkIfRestaurantAddOrUpdate = () => {
+  //   if (this.props.updateRestaurant === true ) {
+  //     // this.setState({
+  //     //   text: this.state.text,
+  //     // });
+  //   }
+  //   this.props.addRestaurant(this.state.text);
+  // }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = (event) => {
     event.preventDefault();
-    this.checkIfRestaurantAddOrUpdate()
-    //this.props.addRestaurant(this.state.text);
+    console.log("event object value:",event.target.value )
+    console.log("this.state:", this.state)
+//    this.checkIfRestaurantAddOrUpdate()
+    if (this.props.updateRestaurant === true) {
+      this.props.update(this.state.text);
+      this.setState({
+        text: this.state.text
+      });
+    } else {
+    this.props.addRestaurant(this.state.text);
     this.setState({
       text: ''
     });
+    }
   }
 
   render() {

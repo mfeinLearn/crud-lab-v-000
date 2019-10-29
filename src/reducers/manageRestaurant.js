@@ -16,16 +16,23 @@ export default function manageRestaurants(state = {
       return { ...state, restaurants: [...state.restaurants, restaurant] }
     case 'DELETE_RESTAURANT':
       return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
-    // case "UPDATE_RESTAURANT":
-      // if(restaurant.id  === action.id){
-      //
-      //   return {restaurants: state.restaurants }
+    case "UPDATE_RESTAURANT":
+      console.log(state.restaurants)
+      let theRestaurant = state.restaurants.find(action.id)
+      theRestaurant.text=action.text
+      // const aRestaurant = {
+      //   id: action.id,
+      //   text: theRestaurant.text
       // }
-      //   return {restaurants: state.restaurants.map(restaurant => restaurant.id !== action.id) }
-      // alert("inside of UPDATE_RESTAURANT");
-      // return state;
+      console.log(action)
+        return {restaurants: state.restaurants.map(rest => {
+          if (rest.id === action.id) {
+            return { ...state, restaurants: [...state.restaurants, theRestaurant] }
+          }
+        })
+      }
+      return state;
     case "ADD_REVIEW":
-    console.log("inside add review:", action.review)
       const review = {
         id: cuid(),
         text: action.review.text,
